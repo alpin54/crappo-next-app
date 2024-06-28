@@ -5,14 +5,10 @@ import { useEffect, useState } from "react";
 import httpRequest from "@api/httpRequest";
 import ENDPOINT from "@api/endPoint";
 
-// -- model
-// import statisticsModel from "@models/statistics";
-
 // -- organisms
 import Statistics from "@organisms/Statistics";
 
 const StatisticsWidget = () => {
-	// const { ready, data, error } = statisticsModel.list();
 	const [callStatisticsData, setCallStatisticsData] = useState(false);
 	const [statisticsdata, setStatisticsData] = useState(null);
 
@@ -21,8 +17,9 @@ const StatisticsWidget = () => {
 			window.pageYOffset ||
 			document.documentElement.scrollTop ||
 			document.body.scrollTop;
-		const numbers = document.getElementById("numbers");
-		const startScroll = numbers.offsetTop + numbers.clientHeight / 2;
+		const cryptoCurrencies = document.getElementById("crypto-currencies");
+		const startScroll =
+			cryptoCurrencies.offsetTop + cryptoCurrencies.clientHeight / 2;
 
 		if (scrollTop > startScroll && !callStatisticsData) {
 			setCallStatisticsData(true);

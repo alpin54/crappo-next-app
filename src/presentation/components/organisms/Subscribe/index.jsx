@@ -19,7 +19,7 @@ const Subscribe = (props) => {
 	};
 
 	return (
-		<section className={style.start} id="contact">
+		<section className={style.start} id="subscribe">
 			<div className="container">
 				<div className={style.box}>
 					<div className={style.text}>

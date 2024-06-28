@@ -7,7 +7,7 @@ const FormControl = (props) => {
 	if (variant === "select") {
 		return (
 			<select {...props} className={`${style.select} ${color}`}>
-				{list.map((val, idx) => {
+				{list?.map((val, idx) => {
 					return (
 						<option value={val.value} key={`op-${idx}`}>
 							{val.unit}

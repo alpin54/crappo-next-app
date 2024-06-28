@@ -20,7 +20,7 @@ const Statistics = (props) => {
 	// }
 
 	return (
-		<section className={style.statistics}>
+		<section className={style.statistics} id="statistics">
 			<div className="container">
 				<div className={style.inner}>
 					<div className={style.img}>

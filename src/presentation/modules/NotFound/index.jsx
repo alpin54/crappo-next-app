@@ -1,15 +1,8 @@
-// -- templates
-import Default from "@templates/Default";
-
 // components
 import NotFoundSection from "@organisms/NotFoundSection";
 
 const NotFound = () => {
-	return (
-		<Default>
-			<NotFoundSection />
-		</Default>
-	);
+	return <NotFoundSection />;
 };
 
 export default NotFound;

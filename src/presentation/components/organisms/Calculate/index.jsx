@@ -21,7 +21,7 @@ const Calculate = (props) => {
 	// }
 
 	return (
-		<section className={style.calculate}>
+		<section className={style.calculate} id="calculate">
 			<div className="container">
 				<div className={style.head}>
 					<h2 className={style.title}>Check how much you can earn</h2>

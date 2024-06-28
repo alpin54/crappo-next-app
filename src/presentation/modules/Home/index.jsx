@@ -10,8 +10,8 @@ import useStateHeader from "core/states/header";
 import CalculateWidget from "@widgets/CalculateWidget";
 import CryptoCurrenciesWidget from "@widgets/CryptoCurrenciesWidget";
 import InvestSmartWidget from "@widgets/InvestSmartWidget";
-// import StatisticsWidget from "@widgets/StatisticsWidget";
-// import ProfitInvestmentsWidget from "@widgets/ProfitInvestmentsWidget";
+import StatisticsWidget from "@widgets/StatisticsWidget";
+import ProfitInvestmentsWidget from "@widgets/ProfitInvestmentsWidget";
 import SubsribeWidget from "@widgets/SubscribeWidget";
 
 // // -- organisms
@@ -53,11 +53,11 @@ const Home = (props) => {
 				error={whyCrappoError}
 			/>
 			{/* CSR */}
-			{/* <CalculateWidget />
+			<CalculateWidget />
 			<CryptoCurrenciesWidget />
-			<InvestSmartWidget /> */}
-			{/* <StatisticsWidget /> */}
-			{/* <ProfitInvestmentsWidget /> */}
+			<InvestSmartWidget />
+			<StatisticsWidget />
+			<ProfitInvestmentsWidget />
 			<SubsribeWidget />
 		</>
 	);

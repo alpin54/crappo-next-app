@@ -20,7 +20,7 @@ const InvestSmart = (props) => {
 	// }
 
 	return (
-		<section className={style.invest} id="about">
+		<section className={style.invest} id="invest-smart">
 			<div className="container">
 				<div className={style.head}>
 					<h2 className={style.title}>{props.data?.title}</h2>

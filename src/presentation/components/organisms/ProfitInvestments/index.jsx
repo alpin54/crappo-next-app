@@ -20,7 +20,7 @@ const ProfitInvestments = (props) => {
 	// }
 
 	return (
-		<section className={style.profit}>
+		<section className={style.profit} id="profit-investments">
 			<div className="container">
 				<div className={style.inner}>
 					<div className={style.img}>
