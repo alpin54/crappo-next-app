@@ -1,5 +1,26 @@
+// -- config
+import DefaultSEO from "@configs/SEO";
+
 // style
 import "@styles/app.scss";
+
+const metadata = {
+	title: {
+		template: `%s - ${DefaultSEO.title}`,
+		default: DefaultSEO.title,
+	},
+	description: DefaultSEO.description,
+	keywords: DefaultSEO.keywords,
+	openGraph: {
+		title: DefaultSEO.title,
+		description: DefaultSEO.description,
+		url: DefaultSEO.openGraph.url,
+		siteName: DefaultSEO.siteDomain,
+		locale: "en_US",
+		type: DefaultSEO.openGraph.type,
+		section: DefaultSEO.openGraph.section,
+	},
+};
 
 const RootLayout = (props) => {
 	const { children } = props;
@@ -11,4 +32,5 @@ const RootLayout = (props) => {
 	);
 };
 
+export { metadata };
 export default RootLayout;

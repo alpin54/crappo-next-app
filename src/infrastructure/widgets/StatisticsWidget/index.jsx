@@ -1,9 +1,8 @@
 // -- core
 import { useEffect, useState } from "react";
 
-// -- api
-import httpRequest from "@api/httpRequest";
-import ENDPOINT from "@api/endPoint";
+// -- model
+import statisticsModel from "@models/statistics";
 
 // -- organisms
 import Statistics from "@organisms/Statistics";
@@ -18,19 +17,18 @@ const StatisticsWidget = () => {
 			document.documentElement.scrollTop ||
 			document.body.scrollTop;
 		const cryptoCurrencies = document.getElementById("crypto-currencies");
-		const startScroll =
-			cryptoCurrencies.offsetTop + cryptoCurrencies.clientHeight / 2;
+		if (cryptoCurrencies) {
+			const startScroll =
+				cryptoCurrencies.offsetTop + cryptoCurrencies.clientHeight / 2;
 
-		if (scrollTop > startScroll && !callStatisticsData) {
-			setCallStatisticsData(true);
+			if (scrollTop > startScroll && !callStatisticsData) {
+				setCallStatisticsData(true);
+			}
 		}
 	};
 
 	const handleStatisticsData = async () => {
-		const { ready, data, error } = await httpRequest({
-			method: "get",
-			url: ENDPOINT.STATISTICS,
-		});
+		const { ready, data, error } = await statisticsModel.list();
 		setStatisticsData(data?.data);
 	};
 

@@ -1,9 +1,8 @@
 // -- core
 import { useEffect, useState } from "react";
 
-// -- api
-import httpRequest from "@api/httpRequest";
-import ENDPOINT from "@api/endPoint";
+// -- model
+import calculateModel from "@models/calculate";
 
 // -- organisms
 import Calculate from "@organisms/Calculate";
@@ -18,18 +17,17 @@ const CalculateWidget = () => {
 			document.documentElement.scrollTop ||
 			document.body.scrollTop;
 		const heroBanner = document.getElementById("hero-banner");
-		const startScroll = heroBanner.offsetTop + heroBanner.clientHeight / 2;
+		if (heroBanner) {
+			const startScroll = heroBanner.offsetTop + heroBanner.clientHeight / 2;
 
-		if (scrollTop > startScroll && !callCalculateData) {
-			setCallCalculateData(true);
+			if (scrollTop > startScroll && !callCalculateData) {
+				setCallCalculateData(true);
+			}
 		}
 	};
 
 	const handleCalculateData = async () => {
-		const { ready, data, error } = await httpRequest({
-			method: "get",
-			url: ENDPOINT.CALCULATE,
-		});
+		const { ready, data, error } = await calculateModel.list();
 		setCalculateData(data?.data);
 	};
 

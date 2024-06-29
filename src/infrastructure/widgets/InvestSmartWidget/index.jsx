@@ -1,9 +1,8 @@
 // -- core
 import { useEffect, useState } from "react";
 
-// -- api
-import httpRequest from "@api/httpRequest";
-import ENDPOINT from "@api/endPoint";
+// -- model
+import investSmartModel from "@models/investSmart";
 
 // -- organisms
 import InvestSmart from "@organisms/InvestSmart";
@@ -18,18 +17,17 @@ const InvestSmartWidget = () => {
 			document.documentElement.scrollTop ||
 			document.body.scrollTop;
 		const calculate = document.getElementById("calculate");
-		const startScroll = calculate.offsetTop + calculate.clientHeight / 2;
+		if (calculate) {
+			const startScroll = calculate.offsetTop + calculate.clientHeight / 2;
 
-		if (scrollTop > startScroll && !callInvestData) {
-			setCallInvestData(true);
+			if (scrollTop > startScroll && !callInvestData) {
+				setCallInvestData(true);
+			}
 		}
 	};
 
 	const handleInvestData = async () => {
-		const { ready, data, error } = await httpRequest({
-			method: "get",
-			url: ENDPOINT.INVEST_SMART,
-		});
+		const { ready, data, error } = await investSmartModel.list();
 		setInvestData(data?.data);
 	};
 

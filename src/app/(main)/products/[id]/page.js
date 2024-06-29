@@ -1,7 +1,7 @@
 // -- model
 import productModel from "@models/product";
 
-// -- Products Pages
+// -- modules
 import ProductsDetail from "@modules/Products/Detail";
 
 const ProductsPage = async (PropsPage) => {
