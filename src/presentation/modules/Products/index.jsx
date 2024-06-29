@@ -1,27 +1,33 @@
 "use client";
 
-import { useState } from "react";
+// -- core
+import { useEffect } from "react";
 import Link from "next/link";
 
 // -- states
 import useStateHeader from "core/states/header";
 
 const Products = (props) => {
-	const { product } = props;
+	const { ssrData } = props;
+	const { product } = ssrData;
+
+	// product
+	const { data: productData, error: productError } = product;
+
+	// set menu
 	const { setMenu } = useStateHeader();
 
-	useState(() => {
+	useEffect(() => {
 		setMenu("products");
 	}, []);
 
 	return (
 		<>
-			<h1>Products Pages</h1>
-			{/* <div className="product">
+			<div className="product">
 				<div className="container">
 					<div className="product__list">
-						{product !== null &&
-							product.map((val, idx) => (
+						{productData !== null &&
+							productData.map((val, idx) => (
 								<div className="product__item" key={idx}>
 									<div className="product__box">
 										<Link
@@ -42,7 +48,7 @@ const Products = (props) => {
 							))}
 					</div>
 				</div>
-			</div> */}
+			</div>
 		</>
 	);
 };

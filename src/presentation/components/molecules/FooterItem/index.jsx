@@ -1,3 +1,5 @@
+"use client";
+
 // -- core
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";

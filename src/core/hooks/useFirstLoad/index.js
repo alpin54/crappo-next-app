@@ -1,21 +1,13 @@
-"use client";
-
 // --- core
 import { useState, useEffect } from "react";
 
-// -- api
-import httpRequest from "@api/httpRequest";
-
-// --- RequestComponent
-const RequestComponent = (param) => {
+const useFirstLoad = (model) => {
 	const [ready, setReady] = useState(false);
 	const [data, setData] = useState(null);
 	const [error, setError] = useState(false);
 
 	const handleFetch = async () => {
-		const { data: dataResponse, error: errorResponse } = await httpRequest(
-			param
-		);
+		const { data: dataResponse, error: errorResponse } = await model;
 		if (errorResponse) {
 			setError(errorResponse);
 		} else {
@@ -35,8 +27,4 @@ const RequestComponent = (param) => {
 	};
 };
 
-const httpClient = (param) => {
-	return RequestComponent(param);
-};
-
-export default httpClient;
+export default useFirstLoad;

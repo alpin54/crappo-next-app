@@ -1,12 +1,13 @@
 "use client";
 
 // -- core
-import { useState } from "react";
+import { useEffect } from "react";
 
 // -- states
 import useStateHeader from "core/states/header";
 
 // -- widgets
+import WhyCrappoWidget from "@widgets/WhyCrappoWidget";
 import CalculateWidget from "@widgets/CalculateWidget";
 import CryptoCurrenciesWidget from "@widgets/CryptoCurrenciesWidget";
 import InvestSmartWidget from "@widgets/InvestSmartWidget";
@@ -17,11 +18,10 @@ import SubsribeWidget from "@widgets/SubscribeWidget";
 // // -- organisms
 import HeroBanner from "@organisms/HeroBanner";
 import Numbers from "@organisms/Numbers";
-import WhyCrappo from "@organisms/WhyCrappo";
 
 const Home = (props) => {
 	const { ssrData } = props;
-	const { heroBanner, numbers, whyCrappo } = ssrData;
+	const { heroBanner, numbers } = ssrData;
 
 	// heroBanner
 	const { data: heroBannerData, error: heroBannerError } = heroBanner;
@@ -29,12 +29,10 @@ const Home = (props) => {
 	// numbers
 	const { data: numbersData, error: numbersError } = numbers;
 
-	// whyCrappo
-	const { data: whyCrappoData, error: whyCrappoError } = whyCrappo;
-
+	// set menu
 	const { setMenu } = useStateHeader();
 
-	useState(() => {
+	useEffect(() => {
 		setMenu("");
 	}, []);
 
@@ -47,17 +45,15 @@ const Home = (props) => {
 				error={heroBannerError}
 			/>
 			<Numbers ready={true} data={numbersData.data} error={numbersError} />
-			<WhyCrappo
-				ready={true}
-				data={whyCrappoData.data}
-				error={whyCrappoError}
-			/>
 			{/* CSR */}
+			<WhyCrappoWidget />
+			{/* OSC CSR */}
 			<CalculateWidget />
 			<CryptoCurrenciesWidget />
 			<InvestSmartWidget />
 			<StatisticsWidget />
 			<ProfitInvestmentsWidget />
+			{/* SUBMIT */}
 			<SubsribeWidget />
 		</>
 	);

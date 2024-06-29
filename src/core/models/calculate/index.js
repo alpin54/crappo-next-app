@@ -1,17 +1,12 @@
-import httpClient from "@api/httpClient";
+// -- api
+import httpRequest from "@api/httpRequest";
 import ENDPOINT from "@api/endPoint";
 
-const handleList = () => {
-	const { ready, data, error } = httpClient({
+const handleList = async () => {
+	return await httpRequest({
 		method: "get",
 		url: ENDPOINT.CALCULATE,
 	});
-
-	return {
-		ready,
-		data,
-		error,
-	};
 };
 
 const calculateModel = {

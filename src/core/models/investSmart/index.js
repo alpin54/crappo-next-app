@@ -1,17 +1,12 @@
-import httpClient from "infrastructure/api/httpClient";
+// -- api
+import httpRequest from "infrastructure/api/httpRequest";
 import ENDPOINT from "infrastructure/api/endPoint";
 
-const handleList = () => {
-	const { ready, data, error } = httpClient({
+const handleList = async () => {
+	return await httpRequest({
 		method: "get",
 		url: ENDPOINT.INVEST_SMART,
 	});
-
-	return {
-		ready,
-		data,
-		error,
-	};
 };
 
 const investSmartModel = {

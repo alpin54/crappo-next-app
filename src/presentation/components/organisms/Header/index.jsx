@@ -1,3 +1,5 @@
+"use client";
+
 // -- core
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
@@ -16,13 +18,6 @@ import Button from "@atoms/Button";
 const Header = (props) => {
 	const { total } = useStateSubscribe();
 	const { menu } = useStateHeader();
-
-	// data is loading
-	if (!props.ready) {
-		<div className="container">
-			<h5>data sedang dimuat</h5>
-		</div>;
-	}
 
 	// show navigation menu
 	const [showNavigation, setShowNavigation] = useState(false);
