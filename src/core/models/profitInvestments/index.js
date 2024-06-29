@@ -1,8 +1,8 @@
-import httpRequest from "infrastructure/api/httpRequest";
+import httpClient from "infrastructure/api/httpClient";
 import ENDPOINT from "infrastructure/api/endPoint";
 
 const handleList = () => {
-	const { ready, data, error } = httpRequest.firstLoad({
+	const { ready, data, error } = httpClient({
 		method: "get",
 		url: ENDPOINT.PROFIT_INVESTMENTS,
 	});

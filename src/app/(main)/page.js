@@ -1,4 +1,4 @@
-// -- core
+// -- api
 import ENDPOINT from "@api/endPoint";
 import httpRequest from "@api/httpRequest";
 
