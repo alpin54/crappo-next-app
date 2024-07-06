@@ -50,6 +50,7 @@
 			margin: 0;
 		}
 		@include small {
+			width: auto;
 			height: 32px;
 			margin: 4px 0;
 		}

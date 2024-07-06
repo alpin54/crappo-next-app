@@ -105,7 +105,7 @@ const HeroBanner = (props) => {
 						<div className={style.item} key={`hb-${idx}`}>
 							<div className={style.middleAlign}>
 								<div className="container">
-									<HeroBannerItem {...val} />
+									<HeroBannerItem data={val} id={idx} />
 								</div>
 							</div>
 						</div>

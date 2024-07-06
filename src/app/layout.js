@@ -1,36 +1,31 @@
-// -- config
-import DefaultSEO from "@configs/SEO";
+// -- utils
+import metaTag, { MetaTagDefault } from "@utils/metaTag";
 
-// style
+// -- style
 import "@styles/app.scss";
 
-const metadata = {
-	title: {
-		template: `%s - ${DefaultSEO.title}`,
-		default: DefaultSEO.title,
-	},
-	description: DefaultSEO.description,
-	keywords: DefaultSEO.keywords,
-	openGraph: {
-		title: DefaultSEO.title,
-		description: DefaultSEO.description,
-		url: DefaultSEO.openGraph.url,
-		siteName: DefaultSEO.siteDomain,
-		locale: "en_US",
-		type: DefaultSEO.openGraph.type,
-		section: DefaultSEO.openGraph.section,
-	},
-};
+// -- metadata
+const metadata = metaTag.data();
 
+// -- viewport
+const viewport = metaTag.viewport();
+
+// -- RootLayout --
 const RootLayout = (props) => {
 	const { children } = props;
 
 	return (
 		<html lang="en">
+			{/* -- THE HEAD -- */}
+			<head>
+				<MetaTagDefault />
+			</head>
+
+			{/* -- THE HEAD -- */}
 			<body>{children}</body>
 		</html>
 	);
 };
 
-export { metadata };
+export { metadata, viewport };
 export default RootLayout;
